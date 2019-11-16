@@ -41,8 +41,8 @@
             this.cBoxBaudRate = new System.Windows.Forms.ComboBox();
             this.cBoxCOMPORT = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnConnect = new System.Windows.Forms.Button();
             this.btnDisConnect = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.tBoxDataSend = new System.Windows.Forms.TextBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -93,6 +94,7 @@
             this.groupBox11.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -240,17 +242,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // btnConnect
-            // 
-            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConnect.Location = new System.Drawing.Point(6, 13);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(186, 36);
-            this.btnConnect.TabIndex = 0;
-            this.btnConnect.Text = "CONNECT";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
             // btnDisConnect
             // 
             this.btnDisConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,6 +252,17 @@
             this.btnDisConnect.Text = "DISCONNECT";
             this.btnDisConnect.UseVisualStyleBackColor = true;
             this.btnDisConnect.Click += new System.EventHandler(this.btnDisConnect_Click);
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnect.Location = new System.Drawing.Point(6, 13);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(186, 36);
+            this.btnConnect.TabIndex = 0;
+            this.btnConnect.Text = "CONNECT";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // label10
             // 
@@ -301,6 +303,7 @@
             // tBoxLed5
             // 
             this.tBoxLed5.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed5.Enabled = false;
             this.tBoxLed5.Location = new System.Drawing.Point(38, 14);
             this.tBoxLed5.Multiline = true;
             this.tBoxLed5.Name = "tBoxLed5";
@@ -310,6 +313,7 @@
             // tBoxLed6
             // 
             this.tBoxLed6.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed6.Enabled = false;
             this.tBoxLed6.Location = new System.Drawing.Point(36, 14);
             this.tBoxLed6.Multiline = true;
             this.tBoxLed6.Name = "tBoxLed6";
@@ -319,6 +323,7 @@
             // tBoxLed7
             // 
             this.tBoxLed7.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed7.Enabled = false;
             this.tBoxLed7.Location = new System.Drawing.Point(41, 14);
             this.tBoxLed7.Multiline = true;
             this.tBoxLed7.Name = "tBoxLed7";
@@ -328,6 +333,7 @@
             // tBoxLed8
             // 
             this.tBoxLed8.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed8.Enabled = false;
             this.tBoxLed8.Location = new System.Drawing.Point(42, 13);
             this.tBoxLed8.Multiline = true;
             this.tBoxLed8.Name = "tBoxLed8";
@@ -379,7 +385,7 @@
             this.groupBox4.Controls.Add(this.btnLed5);
             this.groupBox4.Controls.Add(this.tBoxLed5);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Location = new System.Drawing.Point(217, 164);
+            this.groupBox4.Location = new System.Drawing.Point(16, 144);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(116, 119);
             this.groupBox4.TabIndex = 31;
@@ -390,7 +396,7 @@
             this.groupBox5.Controls.Add(this.btnLed6);
             this.groupBox5.Controls.Add(this.tBoxLed6);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(350, 165);
+            this.groupBox5.Location = new System.Drawing.Point(138, 144);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(116, 118);
             this.groupBox5.TabIndex = 32;
@@ -401,7 +407,7 @@
             this.groupBox6.Controls.Add(this.btnLed7);
             this.groupBox6.Controls.Add(this.tBoxLed7);
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Location = new System.Drawing.Point(488, 165);
+            this.groupBox6.Location = new System.Drawing.Point(260, 144);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(123, 118);
             this.groupBox6.TabIndex = 33;
@@ -412,7 +418,7 @@
             this.groupBox7.Controls.Add(this.btnLed8);
             this.groupBox7.Controls.Add(this.tBoxLed8);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Location = new System.Drawing.Point(623, 165);
+            this.groupBox7.Location = new System.Drawing.Point(389, 144);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(123, 118);
             this.groupBox7.TabIndex = 34;
@@ -423,7 +429,7 @@
             this.groupBox8.Controls.Add(this.btnLed4);
             this.groupBox8.Controls.Add(this.tBoxLed4);
             this.groupBox8.Controls.Add(this.label6);
-            this.groupBox8.Location = new System.Drawing.Point(623, 39);
+            this.groupBox8.Location = new System.Drawing.Point(389, 29);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(123, 118);
             this.groupBox8.TabIndex = 38;
@@ -441,6 +447,7 @@
             // tBoxLed4
             // 
             this.tBoxLed4.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed4.Enabled = false;
             this.tBoxLed4.Location = new System.Drawing.Point(42, 13);
             this.tBoxLed4.Multiline = true;
             this.tBoxLed4.Name = "tBoxLed4";
@@ -461,7 +468,7 @@
             this.groupBox9.Controls.Add(this.btnLed3);
             this.groupBox9.Controls.Add(this.tBoxLed3);
             this.groupBox9.Controls.Add(this.label7);
-            this.groupBox9.Location = new System.Drawing.Point(488, 39);
+            this.groupBox9.Location = new System.Drawing.Point(260, 29);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(123, 118);
             this.groupBox9.TabIndex = 37;
@@ -479,6 +486,7 @@
             // tBoxLed3
             // 
             this.tBoxLed3.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed3.Enabled = false;
             this.tBoxLed3.Location = new System.Drawing.Point(41, 14);
             this.tBoxLed3.Multiline = true;
             this.tBoxLed3.Name = "tBoxLed3";
@@ -499,7 +507,7 @@
             this.groupBox10.Controls.Add(this.btnLed2);
             this.groupBox10.Controls.Add(this.tBoxLed2);
             this.groupBox10.Controls.Add(this.label8);
-            this.groupBox10.Location = new System.Drawing.Point(350, 39);
+            this.groupBox10.Location = new System.Drawing.Point(138, 29);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(116, 118);
             this.groupBox10.TabIndex = 36;
@@ -517,6 +525,7 @@
             // tBoxLed2
             // 
             this.tBoxLed2.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed2.Enabled = false;
             this.tBoxLed2.Location = new System.Drawing.Point(36, 14);
             this.tBoxLed2.Multiline = true;
             this.tBoxLed2.Name = "tBoxLed2";
@@ -537,7 +546,7 @@
             this.groupBox11.Controls.Add(this.btnLed1);
             this.groupBox11.Controls.Add(this.tBoxLed1);
             this.groupBox11.Controls.Add(this.label9);
-            this.groupBox11.Location = new System.Drawing.Point(217, 39);
+            this.groupBox11.Location = new System.Drawing.Point(16, 29);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(116, 119);
             this.groupBox11.TabIndex = 35;
@@ -556,6 +565,7 @@
             // tBoxLed1
             // 
             this.tBoxLed1.BackColor = System.Drawing.Color.Gray;
+            this.tBoxLed1.Enabled = false;
             this.tBoxLed1.Location = new System.Drawing.Point(38, 14);
             this.tBoxLed1.Multiline = true;
             this.tBoxLed1.Name = "tBoxLed1";
@@ -580,6 +590,7 @@
             // 
             // tBoxDataReceive
             // 
+            this.tBoxDataReceive.Enabled = false;
             this.tBoxDataReceive.Location = new System.Drawing.Point(7, 19);
             this.tBoxDataReceive.Name = "tBoxDataReceive";
             this.tBoxDataReceive.Size = new System.Drawing.Size(186, 20);
@@ -607,10 +618,28 @@
             // 
             // tBoxDataSend
             // 
+            this.tBoxDataSend.Enabled = false;
             this.tBoxDataSend.Location = new System.Drawing.Point(7, 19);
             this.tBoxDataSend.Name = "tBoxDataSend";
             this.tBoxDataSend.Size = new System.Drawing.Size(186, 20);
             this.tBoxDataSend.TabIndex = 40;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.groupBox8);
+            this.groupBox13.Controls.Add(this.groupBox9);
+            this.groupBox13.Controls.Add(this.groupBox10);
+            this.groupBox13.Controls.Add(this.groupBox11);
+            this.groupBox13.Controls.Add(this.groupBox7);
+            this.groupBox13.Controls.Add(this.groupBox6);
+            this.groupBox13.Controls.Add(this.groupBox5);
+            this.groupBox13.Controls.Add(this.groupBox4);
+            this.groupBox13.Location = new System.Drawing.Point(217, 55);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(529, 279);
+            this.groupBox13.TabIndex = 43;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "LED Control";
             // 
             // Form1
             // 
@@ -618,17 +647,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(758, 395);
+            this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.groupBox10);
-            this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -658,6 +680,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -716,6 +739,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox tBoxDataSend;
+        private System.Windows.Forms.GroupBox groupBox13;
     }
 }
 
