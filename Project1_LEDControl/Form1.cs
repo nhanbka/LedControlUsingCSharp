@@ -37,111 +37,117 @@ namespace Project1_LEDControl
             btnLed6.Enabled = false;
             btnLed7.Enabled = false;
             btnLed8.Enabled = false;
-
-            dataToSend = new char[1];
-            dataToSend[0] = (char)0;
         }
 
 
-        /* ----------- Handle btnLed Click ----------- */
+        /*
+         *
+         * ----------- Handle btnLed Click ----------- 
+         *
+         */
         private void btnLed1_Click(object sender, EventArgs e)
         {
             if(tBoxLed1.BackColor == Color.Red)
             {
-                tBoxLed1.BackColor = System.Drawing.Color.Gray;
+                tBoxLed1.BackColor = Color.Gray;
                 btnLed1.Text = "ON";
             }
             else
             {
-                tBoxLed1.BackColor = System.Drawing.Color.Red;
+                tBoxLed1.BackColor = Color.Red;
                 btnLed1.Text = "OFF";
             }
+            sendData();
         }
 
         private void btnLed2_Click(object sender, EventArgs e)
         {
             if (tBoxLed2.BackColor == Color.Red)
             {
-                tBoxLed2.BackColor = System.Drawing.Color.Gray;
+                tBoxLed2.BackColor = Color.Gray;
                 btnLed2.Text = "ON";
             }
             else
             {
-                tBoxLed2.BackColor = System.Drawing.Color.Red;
+                tBoxLed2.BackColor = Color.Red;
                 btnLed2.Text = "OFF";
             }
+            sendData();
         }
 
         private void btnLed3_Click(object sender, EventArgs e)
         {
             if (tBoxLed3.BackColor == Color.Red)
             {
-                tBoxLed3.BackColor = System.Drawing.Color.Gray;
+                tBoxLed3.BackColor = Color.Gray;
                 btnLed3.Text = "ON";
             }
             else
             {
-                tBoxLed3.BackColor = System.Drawing.Color.Red;
+                tBoxLed3.BackColor = Color.Red;
                 btnLed3.Text = "OFF";
             }
+            sendData();
         }
 
         private void btnLed4_Click(object sender, EventArgs e)
         {
             if (tBoxLed4.BackColor == Color.Red)
             {
-                tBoxLed4.BackColor = System.Drawing.Color.Gray;
+                tBoxLed4.BackColor = Color.Gray;
                 btnLed4.Text = "ON";
             }
             else
             {
-                tBoxLed4.BackColor = System.Drawing.Color.Red;
+                tBoxLed4.BackColor = Color.Red;
                 btnLed4.Text = "OFF";
             }
-            serialPort1.Write(dataToSend.ToString());
+            sendData();
         }
 
         private void btnLed5_Click(object sender, EventArgs e)
         {
             if (tBoxLed5.BackColor == Color.Red)
             {
-                tBoxLed5.BackColor = System.Drawing.Color.Gray;
+                tBoxLed5.BackColor = Color.Gray;
                 btnLed5.Text = "ON";
             }
             else
             {
-                tBoxLed5.BackColor = System.Drawing.Color.Red;
+                tBoxLed5.BackColor = Color.Red;
                 btnLed5.Text = "OFF";
             }
-            serialPort1.Write(dataToSend.ToString());
+            sendData();
         }
 
         private void btnLed6_Click(object sender, EventArgs e)
         {
             if (tBoxLed6.BackColor == Color.Red)
             {
-                tBoxLed6.BackColor = System.Drawing.Color.Gray;
+                tBoxLed6.BackColor = Color.Gray;
                 btnLed6.Text = "ON";
             }
             else
             {
-                tBoxLed6.BackColor = System.Drawing.Color.Red;
+                tBoxLed6.BackColor = Color.Red;
                 btnLed6.Text = "OFF";
             }
+            sendData();
         }
 
         private void btnLed7_Click(object sender, EventArgs e)
         {
             if (tBoxLed7.BackColor == Color.Red)
             {
-                tBoxLed7.BackColor = System.Drawing.Color.Gray;
+                tBoxLed7.BackColor = Color.Gray;
                 btnLed7.Text = "ON";
             }
             else
             {
-                tBoxLed7.BackColor = System.Drawing.Color.Red;
+                tBoxLed7.BackColor = Color.Red;
                 btnLed7.Text = "OFF";
             }
+            sendData();
         }
 
         private void btnLed8_Click(object sender, EventArgs e)
@@ -156,9 +162,14 @@ namespace Project1_LEDControl
                 tBoxLed8.BackColor = System.Drawing.Color.Red;
                 btnLed8.Text = "OFF";
             }
+            sendData();
         }
 
-        /* ------------ End Handle btnLed Click--------*/
+        /* 
+         * 
+         * ------------ End Handle btnLed Click--------
+         *
+         */
 
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -247,7 +258,40 @@ namespace Project1_LEDControl
 
         private void sendData()
         {
-
+            string output = "";
+            dataToSend = new byte[1];
+            dataToSend[0] = 0;
+            if (tBoxLed1.BackColor == Color.Red)
+                dataToSend[0]++;
+            if (tBoxLed2.BackColor == Color.Red)
+                dataToSend[0] += 2;
+            if (tBoxLed3.BackColor == Color.Red)
+                dataToSend[0] += 4;
+            if (tBoxLed4.BackColor == Color.Red)
+                dataToSend[0] += 8;
+            if (tBoxLed5.BackColor == Color.Red)
+                dataToSend[0] += 16;
+            if (tBoxLed6.BackColor == Color.Red)
+                dataToSend[0] += 32;
+            if (tBoxLed7.BackColor == Color.Red)
+                dataToSend[0] += 64;
+            if (tBoxLed8.BackColor == Color.Red)
+                dataToSend[0] += 128;
+            serialPort1.Write(dataToSend, 0, 1);
+            int temp = dataToSend[0];
+            while (output.Length < 8)
+            {
+                if (temp % 2 == 0)
+                {
+                    output = "0" + output;
+                }
+                else
+                {
+                    output = "1" + output;
+                }
+                temp /= 2;
+            }
+            tBoxDataSend.Text = output;
         }
 
         private void ShowData(object sender, EventArgs e)
@@ -380,5 +424,6 @@ namespace Project1_LEDControl
                 }
             }
         }
+
     }
 }

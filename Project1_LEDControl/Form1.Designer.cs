@@ -352,6 +352,7 @@
             this.btnLed8.TabIndex = 30;
             this.btnLed8.Text = "ON";
             this.btnLed8.UseVisualStyleBackColor = true;
+            this.btnLed8.Click += new System.EventHandler(this.btnLed8_Click);
             // 
             // btnLed7
             // 
@@ -361,6 +362,7 @@
             this.btnLed7.TabIndex = 29;
             this.btnLed7.Text = "ON";
             this.btnLed7.UseVisualStyleBackColor = true;
+            this.btnLed7.Click += new System.EventHandler(this.btnLed7_Click);
             // 
             // btnLed6
             // 
@@ -370,6 +372,7 @@
             this.btnLed6.TabIndex = 28;
             this.btnLed6.Text = "ON";
             this.btnLed6.UseVisualStyleBackColor = true;
+            this.btnLed6.Click += new System.EventHandler(this.btnLed6_Click);
             // 
             // btnLed5
             // 
@@ -379,6 +382,7 @@
             this.btnLed5.TabIndex = 27;
             this.btnLed5.Text = "ON";
             this.btnLed5.UseVisualStyleBackColor = true;
+            this.btnLed5.Click += new System.EventHandler(this.btnLed5_Click);
             // 
             // groupBox4
             // 
@@ -443,6 +447,7 @@
             this.btnLed4.TabIndex = 30;
             this.btnLed4.Text = "ON";
             this.btnLed4.UseVisualStyleBackColor = true;
+            this.btnLed4.Click += new System.EventHandler(this.btnLed4_Click);
             // 
             // tBoxLed4
             // 
@@ -482,6 +487,7 @@
             this.btnLed3.TabIndex = 29;
             this.btnLed3.Text = "ON";
             this.btnLed3.UseVisualStyleBackColor = true;
+            this.btnLed3.Click += new System.EventHandler(this.btnLed3_Click);
             // 
             // tBoxLed3
             // 
@@ -521,6 +527,7 @@
             this.btnLed2.TabIndex = 28;
             this.btnLed2.Text = "ON";
             this.btnLed2.UseVisualStyleBackColor = true;
+            this.btnLed2.Click += new System.EventHandler(this.btnLed2_Click);
             // 
             // tBoxLed2
             // 
