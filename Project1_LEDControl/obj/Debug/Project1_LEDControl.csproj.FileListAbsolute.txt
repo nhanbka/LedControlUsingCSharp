@@ -1,0 +1,9 @@
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\bin\Debug\Project1_LEDControl.exe.config
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\bin\Debug\Project1_LEDControl.exe
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\bin\Debug\Project1_LEDControl.pdb
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.csprojAssemblyReference.cache
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.Form1.resources
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.Properties.Resources.resources
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.csproj.GenerateResource.cache
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.exe
+D:\Self Study\Embedded\Code\C#\Project1_LEDControl\Project1_LEDControl\obj\Debug\Project1_LEDControl.pdb
