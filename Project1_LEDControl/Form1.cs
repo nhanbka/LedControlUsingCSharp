@@ -13,9 +13,11 @@ namespace Project1_LEDControl
 {
     public partial class Form1 : Form
     {
-        string[] ports;
-        byte[] byteBuffer;
-        byte[] dataToSend;
+        private string[] ports;
+        private byte[] byteBuffer;
+        private byte[] dataToSend;
+        private int[] statusLED;
+        private int first_load;
         
         public Form1()
         {
@@ -37,6 +39,10 @@ namespace Project1_LEDControl
             btnLed6.Enabled = false;
             btnLed7.Enabled = false;
             btnLed8.Enabled = false;
+            statusLED = new int[8];
+            for (int i = 0; i < 8; i++)
+                statusLED[i] = 0;
+            first_load = 0;
         }
 
 
@@ -49,13 +55,11 @@ namespace Project1_LEDControl
         {
             if(tBoxLed1.BackColor == Color.Red)
             {
-                tBoxLed1.BackColor = Color.Gray;
-                btnLed1.Text = "ON";
+                statusLED[0] = 0;
             }
             else
             {
-                tBoxLed1.BackColor = Color.Red;
-                btnLed1.Text = "OFF";
+                statusLED[0] = 1;
             }
             sendData();
         }
@@ -64,13 +68,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed2.BackColor == Color.Red)
             {
-                tBoxLed2.BackColor = Color.Gray;
-                btnLed2.Text = "ON";
+                statusLED[1] = 0;
             }
             else
             {
-                tBoxLed2.BackColor = Color.Red;
-                btnLed2.Text = "OFF";
+                statusLED[1] = 1;
             }
             sendData();
         }
@@ -79,13 +81,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed3.BackColor == Color.Red)
             {
-                tBoxLed3.BackColor = Color.Gray;
-                btnLed3.Text = "ON";
+                statusLED[2] = 0;
             }
             else
             {
-                tBoxLed3.BackColor = Color.Red;
-                btnLed3.Text = "OFF";
+                statusLED[2] = 1;
             }
             sendData();
         }
@@ -94,13 +94,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed4.BackColor == Color.Red)
             {
-                tBoxLed4.BackColor = Color.Gray;
-                btnLed4.Text = "ON";
+                statusLED[3] = 0;
             }
             else
             {
-                tBoxLed4.BackColor = Color.Red;
-                btnLed4.Text = "OFF";
+                statusLED[3] = 1;
             }
             sendData();
         }
@@ -109,13 +107,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed5.BackColor == Color.Red)
             {
-                tBoxLed5.BackColor = Color.Gray;
-                btnLed5.Text = "ON";
+                statusLED[4] = 0;
             }
             else
             {
-                tBoxLed5.BackColor = Color.Red;
-                btnLed5.Text = "OFF";
+                statusLED[4] = 1;
             }
             sendData();
         }
@@ -124,13 +120,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed6.BackColor == Color.Red)
             {
-                tBoxLed6.BackColor = Color.Gray;
-                btnLed6.Text = "ON";
+                statusLED[5] = 0;
             }
             else
             {
-                tBoxLed6.BackColor = Color.Red;
-                btnLed6.Text = "OFF";
+                statusLED[5] = 1;
             }
             sendData();
         }
@@ -139,13 +133,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed7.BackColor == Color.Red)
             {
-                tBoxLed7.BackColor = Color.Gray;
-                btnLed7.Text = "ON";
+                statusLED[6] = 0;
             }
             else
             {
-                tBoxLed7.BackColor = Color.Red;
-                btnLed7.Text = "OFF";
+                statusLED[6] = 1;
             }
             sendData();
         }
@@ -154,13 +146,11 @@ namespace Project1_LEDControl
         {
             if (tBoxLed8.BackColor == Color.Red)
             {
-                tBoxLed8.BackColor = System.Drawing.Color.Gray;
-                btnLed8.Text = "ON";
+                statusLED[7] = 0;
             }
             else
             {
-                tBoxLed8.BackColor = System.Drawing.Color.Red;
-                btnLed8.Text = "OFF";
+                statusLED[7] = 1;
             }
             sendData();
         }
@@ -254,6 +244,8 @@ namespace Project1_LEDControl
             byteBuffer = new byte[intBuffer];
             serialPort1.Read(byteBuffer, 0, intBuffer);
             this.Invoke(new EventHandler(ShowData));
+            if(first_load++ == 0)
+                getStatusLED();
         }
 
         private void sendData()
@@ -261,21 +253,21 @@ namespace Project1_LEDControl
             string output = "";
             dataToSend = new byte[1];
             dataToSend[0] = 0;
-            if (tBoxLed1.BackColor == Color.Red)
+            if (statusLED[0] == 1)
                 dataToSend[0]++;
-            if (tBoxLed2.BackColor == Color.Red)
+            if (statusLED[1] == 1)
                 dataToSend[0] += 2;
-            if (tBoxLed3.BackColor == Color.Red)
+            if (statusLED[2] == 1)
                 dataToSend[0] += 4;
-            if (tBoxLed4.BackColor == Color.Red)
+            if (statusLED[3] == 1)
                 dataToSend[0] += 8;
-            if (tBoxLed5.BackColor == Color.Red)
+            if (statusLED[4] == 1)
                 dataToSend[0] += 16;
-            if (tBoxLed6.BackColor == Color.Red)
+            if (statusLED[5] == 1)
                 dataToSend[0] += 32;
-            if (tBoxLed7.BackColor == Color.Red)
+            if (statusLED[6] == 1)
                 dataToSend[0] += 64;
-            if (tBoxLed8.BackColor == Color.Red)
+            if (statusLED[7] == 1)
                 dataToSend[0] += 128;
             serialPort1.Write(dataToSend, 0, 1);
             int temp = dataToSend[0];
@@ -425,5 +417,24 @@ namespace Project1_LEDControl
             }
         }
 
+        private void getStatusLED()
+        {
+            if (tBoxLed1.BackColor == Color.Red)
+                statusLED[0] = 1;
+            if (tBoxLed2.BackColor == Color.Red)
+                statusLED[1] = 1;
+            if (tBoxLed3.BackColor == Color.Red)
+                statusLED[2] = 1;
+            if (tBoxLed4.BackColor == Color.Red)
+                statusLED[3] = 1;
+            if (tBoxLed5.BackColor == Color.Red)
+                statusLED[4] = 1;
+            if (tBoxLed6.BackColor == Color.Red)
+                statusLED[5] = 1;
+            if (tBoxLed7.BackColor == Color.Red)
+                statusLED[6] = 1;
+            if (tBoxLed8.BackColor == Color.Red)
+                statusLED[7] = 1;
+        }
     }
 }
